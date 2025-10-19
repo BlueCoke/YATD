@@ -1,0 +1,25 @@
+{
+    "name": "Torrent Downloader",
+    "image": "mcr.microsoft.com/devcontainers/python:3.11",
+    "features": {
+        "ghcr.io/devcontainers/features/ffmpeg:1": {},
+        "ghcr.io/devcontainers/features/apt-packages:1": {
+            "packages": "aria2 transmission-cli curl wget python3-pip"
+        }
+    },
+    "postCreateCommand": "pip install requests google-api-python-client google-auth-httplib2 google-auth-oauthlib",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python"
+            ]
+        }
+    },
+    "portsAttributes": {
+        "6800": {
+            "label": "Aria2 RPC",
+            "onAutoForward": "silent"
+        }
+    },
+    "forwardPorts": [6800]
+}
